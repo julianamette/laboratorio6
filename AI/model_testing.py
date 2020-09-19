@@ -56,7 +56,7 @@ with torch.no_grad():
         z        = row[:, len(tst_delay[0]):].float().to(device)
         y        = model(x)
         error    = costf(y,z).sum(dim=1).sqrt()
-        e        = np.append(e,error.detach().numpy())
+        e        = np.append(e,error.cpu().detach().numpy())
         
 error_promedio   = np.mean(e)
 desviacion_error = np.std(e) 
