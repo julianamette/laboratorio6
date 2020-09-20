@@ -37,7 +37,7 @@ class MLP(torch.nn.Module):
 
 arq.insert(0,N)
 arq.append(C)
-model = MLP(arq).to(device)
+model = MLP(arq)
 model.load_state_dict(torch.load(modelo))
 model.eval()
 res = model(tst_delay)
